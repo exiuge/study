@@ -821,7 +821,7 @@ function localChannel() {
     while (!desc("工作").exists()); //等待加载出主页
     desc("工作").click();
     console.log("点击本地频道");
-    if (text("四川").exists()) {
+    if (text("四川").exists()||text("陕西").exists()||text("北京").exists()) {
         text("要闻").findOne().parent().parent().child(3).click();
         delay(2);
         className("android.support.v7.widget.RecyclerView").findOne().child(0).click();
@@ -1022,15 +1022,15 @@ function questionShow() {
     console.log("当前在主界面");
     if (text("我的").exists()) {
         text("我的").click();
-        console.log("点击我的");
+        console.log("点击右上角我的");
     }
     delay(1);
-    while (!desc("我的信息").exists()) {
-        console.log("等待 我的 界面");
-        delay(1);
-    }
-    console.log("点击我要答题");
-    text("我要答题").findOne().parent().click();
+    // while (!desc("我的信息").exists()) {
+    //     console.log("等待 我的 界面");
+    //     delay(1);
+    // }
+    console.log("正在点击我要答题");
+    click(device.width / 2, (device.height / 2 - 200));
     delay(1);
 }
 
